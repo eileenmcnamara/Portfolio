@@ -1,27 +1,20 @@
-let currentPage = 1;
-const totalPages = document.querySelectorAll('.page').length;
+const filterButtons = document.querySelectorAll(".filters button");
+const images = document.querySelectorAll(".art-grid img");
 
-function showPage(pageNumber) {
-  document.querySelectorAll('.page').forEach((page, index) => {
-    page.classList.remove('active');
-    if (index + 1 === pageNumber) {
-      page.classList.add('active');
-    }
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    // Remove "active" class
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    const filter = button.getAttribute("data-filter");
+
+    images.forEach(img => {
+      if (filter === "all" || img.classList.contains(filter)) {
+        img.style.display = "block";
+      } else {
+        img.style.display = "none";
+      }
+    });
   });
-}
-
-function nextPage() {
-  if (currentPage < totalPages) {
-    currentPage++;
-    showPage(currentPage);
-  }
-}
-
-function prevPage() {
-  if (currentPage > 1) {
-    currentPage--;
-    showPage(currentPage);
-  }
-}
-
-showPage(currentPage);
+});
