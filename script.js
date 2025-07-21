@@ -3,7 +3,6 @@ const images = document.querySelectorAll(".art-grid img");
 
 filterButtons.forEach(button => {
   button.addEventListener("click", () => {
-    // Remove "active" class
     filterButtons.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
 
