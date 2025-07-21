@@ -1,0 +1,9 @@
+artbook/
+├── index.html
+├── style.css
+├── script.js
+└── images/
+    ├── page1.jpg
+    ├── page2.jpg
+    ├── page3.jpg
+    └── ... (add your artworks here)
