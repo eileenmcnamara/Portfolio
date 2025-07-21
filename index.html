@@ -2,28 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Art Book</title>
+  <title>Amy Shackleton Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="book">
-    <div class="page" id="page1">
-      <img src="images/page1.jpg" alt="Artwork 1">
+  <header>
+    <div class="logo">🎨 Discovery</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Piece Search">
+      <img src="https://img.icons8.com/material-outlined/24/000000/search--v1.png" alt="Search Icon">
     </div>
-    <div class="page" id="page2">
-      <img src="images/page2.jpg" alt="Artwork 2">
-    </div>
-    <div class="page" id="page3">
-      <img src="images/page3.jpg" alt="Artwork 3">
-    </div>
-    <!-- Add more pages as needed -->
-  </div>
+  </header>
 
-  <div class="controls">
-    <button onclick="prevPage()">⟵ Prev</button>
-    <button onclick="nextPage()">Next ⟶</button>
-  </div>
+  <main>
+    <aside class="sidebar">
+      <img src="images/amy.jpg" alt="Amy Shackleton">
+      <h2>AMY SHACKLETON</h2>
+      <p class="location">Oshawa, Ontario</p>
+      <p class="bio">Canadian Artist — paints urban landscapes using squeeze bottles and gravity.</p>
 
-  <script src="script.js"></script>
+      <div class="social">
+        <a href="#"><img src="https://img.icons8.com/ios-filled/20/000000/globe.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/20/000000/facebook-new.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/20/000000/twitter.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/20/000000/instagram-new.png"/></a>
+      </div>
+
+      <button class="message">Message</button>
+
+      <nav>
+        <a href="#" class="active">Portfolio</a>
+        <a href="#">About</a>
+        <a href="#">News</a>
+      </nav>
+    </aside>
+
+    <section class="gallery">
+      <div class="filters">
+        <button class="active">All</button>
+        <button>Available</button>
+        <button>Sold</button>
+      </div>
+
+      <div class="art-grid">
+        <!-- Replace with your actual artwork images -->
+        <img src="images/page1.jpg" alt="Art 1">
+        <img src="images/page2.jpg" alt="Art 2">
+        <img src="images/page3.jpg" alt="Art 3">
+        <img src="images/page4.jpg" alt="Art 4">
+        <img src="images/page5.jpg" alt="Art 5">
+        <img src="images/page6.jpg" alt="Art 6">
+        <img src="images/page7.jpg" alt="Art 7">
+        <img src="images/page8.jpg" alt="Art 8">
+        <!-- Add more as needed -->
+      </div>
+    </section>
+  </main>
 </body>
 </html>
