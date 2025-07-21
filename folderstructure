@@ -1,9 +1,10 @@
 portfolio/
 ├── index.html
+├── about.html
 ├── style.css
 ├── script.js
-├── images/
-    ├── eileen.jpg         ← artist photo
-    ├── page1.jpg          ← artwork
+└── images/
+    ├── eileen.jpg
+    ├── page1.jpg
     ├── page2.jpg
-    ├── ...
+    └── ... (your artworks)
