@@ -1,9 +1,9 @@
-artbook/
+portfolio/
 ├── index.html
 ├── style.css
 ├── script.js
-└── images/
-    ├── page1.jpg
+├── images/
+    ├── eileen.jpg         ← artist photo
+    ├── page1.jpg          ← artwork
     ├── page2.jpg
-    ├── page3.jpg
-    └── ... (add your artworks here)
+    ├── ...
