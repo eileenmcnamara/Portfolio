@@ -1,10 +1,9 @@
-portfolio/
+Portfolio/
 ├── index.html
-├── about.html
+├── cv.html
 ├── style.css
-├── script.js
-└── images/
-    ├── eileen.jpg
-    ├── page1.jpg
-    ├── page2.jpg
-    └── ... (your artworks)
+├── images/
+│   └── eileen.jpg
+├── cv/
+│   ├── Eileen_McNamara_CV_EN.pdf
+│   └── Eileen_McNamara_CV_DE.pdf
