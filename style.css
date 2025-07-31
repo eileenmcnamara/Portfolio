@@ -138,12 +138,6 @@ main {
   color: white;
 }
 
-
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
-}
-
 .art-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -160,6 +154,7 @@ main {
 
 .art-grid img:hover {
   transform: scale(1.03);
+}
 
 /* LIGHTBOX */
 .lightbox {
