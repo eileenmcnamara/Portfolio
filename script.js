@@ -69,5 +69,7 @@ const descriptions = {
   "Page17.jpg": "Abstract gradient study created in Adobe Illustrator. First try with shapes, shadows, and 3D raster mesh effects to explore depth and light using bold color transitions.",
   "Page19.jpg": "Colorful star composition made in Adobe Illustrator. Practicing shape building, layering, and vibrant color contrast.",
   "Page21.jpg": "Adobe Illustrator illustration of cereal and spoon. Practicing shape repetition, outlines, and playful food design.",
+  "Quietloud.gif": "Animated artwork using looping effects, exploring rhythm and text timing with GIF format."
+
 };
 
