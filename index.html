@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Eileen McNamara – Portfolio & CV</title>
+  <title>Eileen McNamara – Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
 
       <nav>
         <a href="index.html" class="active">Portfolio</a>
-        <a href="cv.html" class="cv-tab">CV</a>
+        <a href="cv.html">CV</a>
         <a href="#">News</a>
       </nav>
     </aside>
@@ -55,8 +55,6 @@
         <img src="images/Page15.jpg" alt="Digital artwork 15" class="digital">
         <img src="images/Page16.jpg" alt="Traditional artwork 16" class="traditional">
       </div>
-
-      
     </section>
   </main>
 
@@ -66,7 +64,7 @@
   </div>
 
   <script>
-    // Filter artwork view by tab
+    // Show only selected category
     window.addEventListener('DOMContentLoaded', () => {
       const buttons = document.querySelectorAll('.filter-tab');
       const artworks = document.querySelectorAll('.art-grid img');
@@ -80,10 +78,10 @@
           });
         });
       });
-      buttons[0].click(); // show only digital by default
+      buttons[0].click(); // default to digital
     });
 
-    // Lightbox functionality
+    // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.querySelector('.lightbox .close');
@@ -106,4 +104,3 @@
   </script>
 </body>
 </html>
-
