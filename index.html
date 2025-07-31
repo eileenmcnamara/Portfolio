@@ -9,9 +9,9 @@
   <header>
     <div class="logo">🎨 Eileen's Artwork</div>
     <div class="search-bar">
-      <input type="text" placeholder="Piece Search">
+      <input type="text" placeholder="Piece Search" aria-label="Search artworks">
       <img src="https://img.icons8.com/material-outlined/24/000000/search--v1.png" alt="Search Icon">
-      <button class="dark-toggle">☾ Toggle Mode</button>
+      <button class="dark-toggle" aria-label="Toggle Dark Mode">☾ Toggle Mode</button>
     </div>
   </header>
 
@@ -32,23 +32,28 @@
     </aside>
 
     <section class="gallery">
+      <div class="filters">
+        <button class="filter-tab" data-filter="digital">Digital Art</button>
+        <button class="filter-tab" data-filter="traditional">Traditional Art</button>
+      </div>
+
       <div class="art-grid">
-        <img src="images/Page1.jpg" alt="Art 1" class="digital">
-        <img src="images/Page2.jpg" alt="Art 2" class="traditional">
-        <img src="images/Page3.jpg" alt="Art 3" class="digital">
-        <img src="images/Page4.jpg" alt="Art 4" class="traditional">
-        <img src="images/Page5.jpg" alt="Art 5" class="digital">
-        <img src="images/Page6.jpg" alt="Art 6" class="traditional">
-        <img src="images/Page7.jpg" alt="Art 7" class="digital">
-        <img src="images/Page8.jpg" alt="Art 8" class="traditional">
-        <img src="images/Page9.jpg" alt="Art 9" class="digital">
-        <img src="images/Page10.jpg" alt="Art 10" class="traditional">
-        <img src="images/Page11.jpg" alt="Art 11" class="digital">
-        <img src="images/Page12.jpg" alt="Art 12" class="traditional">
-        <img src="images/Page13.jpg" alt="Art 13" class="digital">
-        <img src="images/Page14.jpg" alt="Art 14" class="traditional">
-        <img src="images/Page15.jpg" alt="Art 15" class="digital">
-        <img src="images/Page16.jpg" alt="Art 16" class="traditional">
+        <img src="images/Page1.jpg" alt="Digital artwork 1" class="digital">
+        <img src="images/Page2.jpg" alt="Traditional artwork 2" class="traditional">
+        <img src="images/Page3.jpg" alt="Digital artwork 3" class="digital">
+        <img src="images/Page4.jpg" alt="Traditional artwork 4" class="traditional">
+        <img src="images/Page5.jpg" alt="Digital artwork 5" class="digital">
+        <img src="images/Page6.jpg" alt="Traditional artwork 6" class="traditional">
+        <img src="images/Page7.jpg" alt="Digital artwork 7" class="digital">
+        <img src="images/Page8.jpg" alt="Traditional artwork 8" class="traditional">
+        <img src="images/Page9.jpg" alt="Digital artwork 9" class="digital">
+        <img src="images/Page10.jpg" alt="Traditional artwork 10" class="traditional">
+        <img src="images/Page11.jpg" alt="Digital artwork 11" class="digital">
+        <img src="images/Page12.jpg" alt="Traditional artwork 12" class="traditional">
+        <img src="images/Page13.jpg" alt="Digital artwork 13" class="digital">
+        <img src="images/Page14.jpg" alt="Traditional artwork 14" class="traditional">
+        <img src="images/Page15.jpg" alt="Digital artwork 15" class="digital">
+        <img src="images/Page16.jpg" alt="Traditional artwork 16" class="traditional">
       </div>
 
       <div class="about-text">
@@ -72,11 +77,49 @@
     </section>
   </main>
 
-  <div class="lightbox" id="lightbox">
-    <span class="close">&times;</span>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork preview">
+    <span class="close" role="button" tabindex="0">&times;</span>
     <img class="lightbox-content" id="lightbox-img" alt="Expanded artwork">
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    // Filter artwork view by tab
+    window.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.filter-tab');
+      const artworks = document.querySelectorAll('.art-grid img');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          artworks.forEach(img => {
+            img.style.display = img.classList.contains(filter) ? 'block' : 'none';
+          });
+        });
+      });
+      buttons[0].click(); // show only digital by default
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox .close');
+
+    document.querySelectorAll('.art-grid img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
