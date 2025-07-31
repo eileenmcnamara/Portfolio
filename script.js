@@ -59,7 +59,7 @@ toggleButton?.addEventListener('click', () => {
 
 // ========== Image Descriptions ==========
 const descriptions = {
-  "Page1.jpg": "Pop-art inspired digital sketch created in Adobe Illustrator.First experiment with typography and layering techniques, exploring text as visual expression.",
+  "Page1.jpg": "Pop-art inspired digital sketch created in Adobe Illustrator. First experiment with typography and layering techniques, exploring text as visual expression.",
   "Page3.jpg": "Shape-based digital fashion sketch using Adobe Illustrator. Ready mannequin styled with geometric forms and bold contrast for a futuristic look.",
   "Page5.jpg": "Geometric logo design for Besiktas Football Team created in Adobe Illustrator. First attempt at digital lettering — exploring symmetry and graphic rhythm.",
   "Page9.jpg": "Adobe Illustrator study using colorful star shapes. Focus on symmetry, layering, and bold outlines.",
