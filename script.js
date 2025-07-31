@@ -1,5 +1,6 @@
 console.log("Script loaded");
 
+// Filter button logic
 const filterButtons = document.querySelectorAll(".filters button");
 const images = document.querySelectorAll(".art-grid img");
 
@@ -23,6 +24,18 @@ filterButtons.forEach(button => {
 // Smooth transition on load
 window.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('loaded');
+
+  // Add image descriptions
+  document.querySelectorAll(".art-grid img").forEach(img => {
+    const fileName = img.src.split('/').pop();
+    console.log("Checking:", fileName); // 👈 for debugging
+    if (descriptions[fileName]) {
+      const caption = document.createElement("div");
+      caption.className = "img-description";
+      caption.textContent = descriptions[fileName];
+      img.parentElement.insertBefore(caption, img.nextSibling);
+    }
+  });
 });
 
 // Dark mode toggle
@@ -48,29 +61,14 @@ const descriptions = {
   "Page5.jpg": "Digital poster using typography tools",
   "Page6.jpg": "Acrylic still life on canvas",
   "Page7.jpg": "Animated frame study in Krita",
-  "Page8.jpg": "Pencil sketch from reference photo"
+  "Page8.jpg": "Pencil sketch from reference photo",
   "Page9.jpg": "Acrylic still life on canvas",
   "Page10.jpg": "Animated frame study in Krita",
-  "Page11.jpg": "Pencil sketch from reference photo"
+  "Page11.jpg": "Pencil sketch from reference photo",
   "Page12.jpg": "Acrylic still life on canvas",
   "Page13.jpg": "Animated frame study in Krita",
-  "Page14.jpg": "Pencil sketch from reference photo"
+  "Page14.jpg": "Pencil sketch from reference photo",
   "Page15.jpg": "Acrylic still life on canvas",
   "Page16.jpg": "Animated frame study in Krita",
   "Page17.jpg": "Pencil sketch from reference photo"
-  // Add more if needed
 };
-
-// Attach descriptions after images load
-window.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".art-grid img").forEach(img => {
-    const fileName = img.src.split('/').pop();
-    if (descriptions[fileName]) {
-      const caption = document.createElement("div");
-      caption.className = "img-description";
-      caption.textContent = descriptions[fileName];
-      img.parentElement.insertBefore(caption, img.nextSibling);
-    }
-  });
-});
-
