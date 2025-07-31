@@ -234,3 +234,10 @@ body.dark-mode .filters button.active {
 body.dark-mode a {
   color: #7db9ff;
 }
+
+.img-description {
+  font-size: 14px;
+  color: black;
+  margin-top: 6px;
+  text-align: center;
+}
