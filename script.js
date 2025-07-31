@@ -84,3 +84,21 @@ const descriptions = {
   "Quietloud.gif": "Animated artwork using looping effects, exploring rhythm and text timing with GIF format.",
   "Page2.jpg": "Charcoal drawing of a cat in profile, capturing light, texture, and expression through bold contrasts and soft shading. Handmade on paper using subtractive techniques."
 };
+
+const searchInput = document.getElementById('searchInput');
+
+if (searchInput) {
+  searchInput.addEventListener('input', () => {
+    const searchText = searchInput.value.toLowerCase();
+    const artItems = document.querySelectorAll('.art-item');
+
+    artItems.forEach(item => {
+      const description = item.querySelector('.img-description')?.textContent.toLowerCase() || '';
+      if (description.includes(searchText)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+}
