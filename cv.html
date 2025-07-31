@@ -2,15 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CV – Eileen McNamara</title>
+  <title>Eileen McNamara – CV</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .logo {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 26px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">🎨 Eileen's Artwork</div>
+    <div class="logo">Eileen’s Artwork</div>
     <div class="search-bar">
-      <input type="text" placeholder="Piece Search" aria-label="Search">
-      <img src="https://img.icons8.com/material-outlined/24/000000/search--v1.png" alt="Search Icon">
+      <input type="text" placeholder="Search..." aria-label="Search">
       <button class="dark-toggle" aria-label="Toggle Dark Mode">☾ Toggle Mode</button>
     </div>
   </header>
@@ -22,7 +31,7 @@
       <p class="location">Zurich, Switzerland</p>
       <p class="bio">Student artist exploring digital media and traditional art.</p>
 
-      <button class="message">Message</button>
+      <a href="mailto:eileen.aylin.mcnamara@gmail.com" class="message">Message Me</a>
 
       <nav>
         <a href="index.html">Portfolio</a>
@@ -32,17 +41,30 @@
     </aside>
 
     <section class="gallery">
-      <h1>Curriculum Vitae</h1>
-      <p>Hello! My name is <strong>Eileen McNamara</strong>. I'm a student artist based in Zurich with a passion for both digital and traditional media. My creative journey explores color, character, and storytelling through various tools such as Photoshop, Illustrator, and hand-drawn methods. I’m currently focused on expanding my skills in animation and concept design.</p>
+      <h1>About Me</h1>
+      <p>Hello! I'm <strong>Eileen McNamara</strong>, a student artist with a passion for both digital media and traditional art forms. I love telling stories through color, composition, and experimentation.</p>
 
-      <p>My educational background includes studies in visual communication and digital arts, and I have completed several school projects and personal studies showcased in the Portfolio tab.</p>
+      <p>My interests include illustration, design, animation, and working with Adobe tools like Illustrator, Photoshop, and InDesign. I enjoy blending classical techniques with modern styles.</p>
 
-      <p>You can view or download my CV below:</p>
+      <p>If you're curious about my journey, feel free to explore or download my CV in English or German below.</p>
 
-      <a href="cv/CV_Eileen McNamara.pdf" target="_blank" class="cv-download">📄 Open My CV (English PDF)</a><br><br>
-      <a href="cv/Lebenslauf_Eileen McNamara.pdf" target="_blank" class="cv-download">📄 Mein Lebenslauf (Deutsch PDF)</a>
+      <h2>Download CV</h2>
+      <ul>
+        <li><a href="cv/Eileen_McNamara_CV_EN.pdf" target="_blank">📄 English CV (PDF)</a></li>
+        <li><a href="cv/Eileen_McNamara_CV_DE.pdf" target="_blank">📄 German CV (PDF)</a></li>
+      </ul>
     </section>
   </main>
+
+  <script>
+    document.querySelector('.dark-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>
+
+
 
   <script src="script.js"></script>
 </body>
