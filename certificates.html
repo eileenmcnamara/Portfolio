@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Eileen McNamara – CV</title>
+  <title>Eileen McNamara – Certificates</title>
   <link rel="stylesheet" href="style.css">
   <style>
     .quote-box {
@@ -35,27 +35,35 @@
       line-height: 1.6;
     }
 
-    .cv-buttons a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-top: 15px;
-      background: #007BFF;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
+    .cert-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    .cv-buttons a:hover {
-      background: #005bb5;
+    .cert-item a {
+      font-weight: bold;
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 16px;
+    }
+
+    .cert-item a:hover {
+      text-decoration: underline;
+    }
+
+    .badge-button {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 15px;
+      color: #0056b3;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <header>
-   <div class="logo">🎨 <span class="gradient-logo">Eileen's Artwork</span></div>
+    <div class="logo">🎨 <span class="gradient-logo">Eileen's Artwork</span></div>
     <div class="search-bar">
       <input type="text" placeholder="Search..." aria-label="Search">
       <button class="dark-toggle" aria-label="Toggle Dark Mode">☾ Toggle Mode</button>
@@ -68,73 +76,60 @@
       <h2>Student</h2>
       <p class="location">Zurich, Switzerland</p>
       <p class="bio">Student artist exploring digital media and traditional art</p>
-
       <a href="mailto:eileen.aylin.mcnamara@gmail.com" class="message">Message Me</a>
-
       <nav>
         <a href="index.html">Portfolio</a>
-        <a href="cv.html" >CV</a>
-        <a href="certificates.html "class="active">Certificates</a>
+        <a href="cv.html">CV</a>
+        <a href="certificates.html" class="active">Certificates</a>
       </nav>
     </aside>
- 
-  <main class="cv-section">
+
     <section class="gallery cv-section">
-      <div class="quote-box" style="font-weight: 500; font-size: 1.2rem;">
+      <div class="quote-box">
         “Certificates are proof not only of achievement, but of dedication and learning.”
-        <br><cite style="display: block; text-align: right; font-weight: 500;">— Portfolio Motto</cite>
+        <cite>— Portfolio Motto</cite>
       </div>
 
       <div class="about-text">
         <h1>Certificates</h1>
-        <p>I have completed several courses and earned certificates in digital and traditional art areas. Below are some of the highlights.</p>
+        <p>I have completed several courses and earned certificates in digital and traditional art areas. Below are some of the highlights:</p>
 
         <div class="cert-grid">
-  <div class="cert-item">
-    <a href="pdf/SKDZ.pdf" target="_blank">
-      <alt="Schule für Kunst und Design Zürich - Kunstwerkstatt Gestalten – 2023">
-    </a>
-    <p>Kunstwerkstatt Gestalten – 2023 (PDF)</p>
-  </div>
+          <div class="cert-item">
+            <a href="pdf/SKDZ.pdf" target="_blank">
+              Kunstwerkstatt Gestalten – 2023 (PDF)
+            </a>
+          </div>
 
-  <div class="cert-item">
-    <a href="pdf/TechSpark Hackathon Google.pdf" target="_blank">
-      < alt="Techspark HackGoogle - Cybersecurity Workshop – 2024">
-    </a>
-    <p>Hack Google-Cybersecurity Workshop – 2024 (PDF)</p>
-  </div>
+          <div class="cert-item">
+            <a href="pdf/TechSpark Hackathon Google.pdf" target="_blank">
+              Hack Google-Cybersecurity Workshop – 2024 (PDF)
+            </a>
+          </div>
 
-  <div class="cert-item">
-    <a href="pdf/UAL.pdf" target="_blank">
-     University of Arts London - Digital Design Course – 2025 (PDF)
-    </a>              
-             <a href="https://eu.credential.net/563cbd6c-13c7-4610-9175-ebb8b72619e9" class="badge-button" target="_blank">
-         Link to UAL Digital Design Badge
-        </a>
+          <div class="cert-item">
+            <a href="pdf/UAL.pdf" target="_blank">
+              University of Arts London – Digital Design Course – 2025 (PDF)
+            </a><br>
+            <a href="https://eu.credential.net/563cbd6c-13c7-4610-9175-ebb8b72619e9" class="badge-button" target="_blank">
+              Link to UAL Digital Design Badge
+            </a>
           </div>
         </div>
       </div>
     </section>
   </main>
-      </main>
 
-  <!-- ✅ Dark Mode Script goes here -->
   <script>
     const toggleBtn = document.querySelector('.dark-toggle');
-
-    // Load saved theme
     if (localStorage.getItem('theme') === 'dark') {
       document.body.classList.add('dark-mode');
     }
-
-    // Toggle handler
     toggleBtn?.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
       localStorage.setItem('theme', theme);
     });
   </script>
-</body>
-</html>
 </body>
 </html>
