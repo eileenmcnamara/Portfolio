@@ -1,4 +1,17 @@
-/* Reset & base */
+:root {
+  --bg: #fef6f9;
+  --fg: #222;
+  --accent: #ff6ec4;
+  --card: #fff;
+}
+
+body.dark-mode {
+  --bg: #1a1a1a;
+  --fg: #f1f1f1;
+  --accent: #ff9de0;
+  --card: #292929;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,12 +20,17 @@
 
 body {
   font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-  background: linear-gradient(120deg, #fef6f9, #eef4ff);
-  color: #333;
+  background: var(--bg);
+  color: var(--fg);
   line-height: 1.6;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
 }
 
-/* Header */
+body.loaded {
+  opacity: 1;
+}
+
 header {
   background: rgba(0, 0, 0, 0.85);
   color: white;
@@ -44,19 +62,32 @@ header {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Layout */
+.dark-toggle {
+  margin-left: 10px;
+  padding: 6px 12px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+.dark-toggle:hover {
+  background: #ff4cb0;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
   padding: 30px;
 }
 
-/* Sidebar */
 .sidebar {
   flex: 1 1 250px;
   max-width: 300px;
   margin-right: 40px;
-  background: white;
+  background: var(--card);
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -103,7 +134,7 @@ main {
 nav a {
   display: block;
   margin: 10px 0;
-  color: #444;
+  color: var(--fg);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s ease;
@@ -111,10 +142,9 @@ nav a {
 
 nav a.active,
 nav a:hover {
-  color: #ff6ec4;
+  color: var(--accent);
 }
 
-/* Gallery Section */
 .gallery {
   flex: 3;
   min-width: 300px;
@@ -124,7 +154,7 @@ nav a:hover {
   font-size: 30px;
   margin-bottom: 20px;
   font-family: 'Georgia', serif;
-  color: #222;
+  color: var(--fg);
 }
 
 .gallery p {
@@ -132,13 +162,12 @@ nav a:hover {
   margin-bottom: 16px;
 }
 
-/* Filters */
 .filters {
   margin-bottom: 25px;
 }
 
 .filters button {
-  background: #fff;
+  background: var(--card);
   border: 2px solid #ddd;
   padding: 8px 16px;
   border-radius: 20px;
@@ -146,16 +175,16 @@ nav a:hover {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
+  color: var(--fg);
 }
 
 .filters button:hover,
 .filters button.active {
-  background: #ff6ec4;
+  background: var(--accent);
   color: white;
-  border-color: #ff6ec4;
+  border-color: var(--accent);
 }
 
-/* Art Grid */
 .art-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -166,15 +195,15 @@ nav a:hover {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  filter: brightness(100%);
 }
-
 .art-grid img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  filter: brightness(105%);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   main {
     flex-direction: column;
