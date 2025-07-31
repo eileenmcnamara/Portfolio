@@ -59,9 +59,9 @@ toggleButton?.addEventListener('click', () => {
 
 // ========== Image Descriptions ==========
 const descriptions = {
-  "Page1.jpg": "Procreate digital sketch using symmetry tool",
+  "Page1.jpg": "Pop-art inspired digital sketch created in Adobe Illustrator.First experiment with typography and layering techniques, exploring text as visual expression.",
   "Page2.jpg": "Watercolor experiment with natural pigments",
-  "Page3.jpg": "Photoshop composite using layer masks",
+  "Page3.jpg": "Shape-based digital fashion sketch using Adobe Illustrator. Ready mannequin styled with geometric forms and bold contrast for a futuristic look.",
   "Page4.jpg": "Charcoal sketch from live model session",
   "Page5.jpg": "Digital poster using typography tools",
   "Page6.jpg": "Acrylic still life on canvas",
