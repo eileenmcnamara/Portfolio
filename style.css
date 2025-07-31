@@ -233,6 +233,10 @@ body.dark-mode .filters button.active {
 
 body.dark-mode a {
   color: #7db9ff;
+
+  /* ✅ ADD THIS BELOW */
+body.dark-mode .img-description {
+  color: #f0f0f0;
 }
 
 .img-description {
