@@ -32,21 +32,33 @@ window.addEventListener("DOMContentLoaded", () => {
     const fileName = img.src.split('/').pop();
     const description = descriptions[fileName];
 
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("art-item");
+
+    // Add the type class (digital or traditional) from image to wrapper
+    if (img.classList.contains("digital")) {
+      wrapper.classList.add("digital");
+    }
+    if (img.classList.contains("traditional")) {
+      wrapper.classList.add("traditional");
+    }
+
+    // Insert wrapper before image, then move image into wrapper
+    img.parentElement.insertBefore(wrapper, img);
+    wrapper.appendChild(img);
+
+    // Add description below image
     if (description) {
-      const wrapper = document.createElement("div");
-      wrapper.className = `art-item ${img.className}`;
-
-      // Insert wrapper before image, then move image into wrapper
-      img.parentElement.insertBefore(wrapper, img);
-      wrapper.appendChild(img);
-
-      // Add description below image
       const caption = document.createElement("div");
       caption.className = "img-description";
       caption.textContent = description;
       wrapper.appendChild(caption);
     }
   });
+
+  // Optional: Show digital by default
+  const defaultBtn = document.querySelector('.filter-tab[data-filter="digital"]');
+  if (defaultBtn) defaultBtn.click();
 });
 
 // ========== Dark Mode Toggle ==========
@@ -70,6 +82,5 @@ const descriptions = {
   "Page19.jpg": "Colorful star composition made in Adobe Illustrator. Practicing shape building, layering, and vibrant color contrast.",
   "Page21.jpg": "Adobe Illustrator illustration of cereal and spoon. Practicing shape repetition, outlines, and playful food design.",
   "Quietloud.gif": "Animated artwork using looping effects, exploring rhythm and text timing with GIF format.",
-  "Page2.jpg":  "Charcoal drawing of a cat in profile, capturing light, texture, and expression through bold contrasts and soft shading. Handmade on paper using subtractive techniques."
+  "Page2.jpg": "Charcoal drawing of a cat in profile, capturing light, texture, and expression through bold contrasts and soft shading. Handmade on paper using subtractive techniques."
 };
-
