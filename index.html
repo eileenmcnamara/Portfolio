@@ -5,7 +5,6 @@
   <title>Eileen McNamara – Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Stylish logo override (can move to style.css) */
     .logo {
       font-family: 'Segoe UI', sans-serif;
       font-size: 26px;
@@ -28,13 +27,12 @@
 
   <main>
     <aside class="sidebar">
-      <img src="images/Eileen Photo.jpg" alt="Portrait of Eileen McNamara">
+      <img src="images/eileen.jpg" alt="Portrait of Eileen McNamara">
       <h2>Student</h2>
       <p class="location">Zurich, Switzerland</p>
       <p class="bio">Student artist exploring digital media and traditional art.</p>
 
-      <!-- Email link styled as button -->
-      <a href="mailto:eileen.aylin.mcnamara@gmail.com" class="message">📧 Message Me</a>
+      <a href="mailto:eileen.aylin.mcnamara@gmail.com" class="message">Message Me</a>
 
       <nav>
         <a href="index.html" class="active">Portfolio</a>
@@ -76,7 +74,7 @@
   </div>
 
   <script>
-    // Show only selected category
+    // Tab filter logic
     window.addEventListener('DOMContentLoaded', () => {
       const buttons = document.querySelectorAll('.filter-tab');
       const artworks = document.querySelectorAll('.art-grid img');
@@ -90,7 +88,7 @@
           });
         });
       });
-      buttons[0].click(); // default to digital
+      buttons[0].click(); // Default: digital
     });
 
     // Lightbox
@@ -112,6 +110,11 @@
 
     lightbox.addEventListener('click', e => {
       if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+
+    // Dark mode toggle
+    document.querySelector('.dark-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
     });
   </script>
 </body>
