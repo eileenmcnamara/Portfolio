@@ -117,5 +117,25 @@
       </div>
     </section>
   </main>
+      </main>
+
+  <!-- ✅ Dark Mode Script goes here -->
+  <script>
+    const toggleBtn = document.querySelector('.dark-toggle');
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // Toggle handler
+    toggleBtn?.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+    });
+  </script>
+</body>
+</html>
 </body>
 </html>
