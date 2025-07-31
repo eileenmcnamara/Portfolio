@@ -2,19 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Certificates – Eileen McNamara</title>
+  <title>Eileen McNamara – CV</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .cert-item {
-      margin-bottom: 40px;
+    .quote-box {
+      border-left: 6px solid #007BFF;
+      padding: 15px 20px;
+      margin-bottom: 30px;
+      font-style: italic;
+      background: #f4f8ff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .quote-box cite {
+      display: block;
+      margin-top: 8px;
+      text-align: right;
+      font-style: normal;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .cv-section h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .cv-section p {
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .cv-buttons a {
+      display: inline-block;
+      margin-right: 15px;
+      margin-top: 15px;
+      background: #007BFF;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .cv-buttons a:hover {
+      background: #005bb5;
     }
   </style>
 </head>
 <body>
   <header>
-     <div class="logo">🎨 <span class="gradient-logo">Eileen's Artwork</span></div>
+   <div class="logo">🎨 <span class="gradient-logo">Eileen's Artwork</span></div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search..." aria-label="Search">
+      <button class="dark-toggle" aria-label="Toggle Dark Mode">☾ Toggle Mode</button>
+    </div>
   </header>
 
+  <main>
+    <aside class="sidebar">
+      <img src="images/Eileen Photo.jpg" alt="Portrait of Eileen McNamara">
+      <h2>Student</h2>
+      <p class="location">Zurich, Switzerland</p>
+      <p class="bio">Student artist exploring digital media and traditional art</p>
+
+      <a href="mailto:eileen.aylin.mcnamara@gmail.com" class="message">Message Me</a>
+
+      <nav>
+        <a href="index.html">Portfolio</a>
+        <a href="cv.html" class="active">CV</a>
+        <a href="certificates.html">Certificates</a>
+      </nav>
+    </aside>
+ 
   <main class="cv-section">
     <section class="gallery cv-section">
       <div class="quote-box" style="font-weight: 500; font-size: 1.2rem;">
