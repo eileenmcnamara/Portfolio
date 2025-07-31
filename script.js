@@ -1,8 +1,7 @@
 console.log("Script loaded");
 
-// Filter button logic
+// ========== Filter Logic ==========
 const filterButtons = document.querySelectorAll(".filters button");
-const images = document.querySelectorAll(".art-grid img");
 
 filterButtons.forEach(button => {
   button.addEventListener("click", () => {
@@ -11,34 +10,46 @@ filterButtons.forEach(button => {
 
     const filter = button.getAttribute("data-filter");
 
-    images.forEach(img => {
-      if (filter === "all" || img.classList.contains(filter)) {
-        img.style.display = "block";
+    document.querySelectorAll(".art-item").forEach(item => {
+      if (filter === "all" || item.classList.contains(filter)) {
+        item.style.display = "block";
       } else {
-        img.style.display = "none";
+        item.style.display = "none";
       }
     });
   });
 });
 
-// Smooth transition on load
-window.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.add('loaded');
+// ========== Theme + Load ==========
+window.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
 
-  // Add image descriptions
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark') document.body.classList.add('dark-mode');
+
+  // Add image descriptions and wrap image in .art-item
   document.querySelectorAll(".art-grid img").forEach(img => {
     const fileName = img.src.split('/').pop();
-    console.log("Checking:", fileName); // 👈 for debugging
-    if (descriptions[fileName]) {
+    const description = descriptions[fileName];
+
+    if (description) {
+      const wrapper = document.createElement("div");
+      wrapper.className = `art-item ${img.className}`;
+
+      // Insert wrapper before image, then move image into wrapper
+      img.parentElement.insertBefore(wrapper, img);
+      wrapper.appendChild(img);
+
+      // Add description below image
       const caption = document.createElement("div");
       caption.className = "img-description";
-      caption.textContent = descriptions[fileName];
-      img.parentElement.insertBefore(caption, img.nextSibling);
+      caption.textContent = description;
+      wrapper.appendChild(caption);
     }
   });
 });
 
-// Dark mode toggle
+// ========== Dark Mode Toggle ==========
 const toggleButton = document.querySelector('.dark-toggle');
 toggleButton?.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
@@ -46,13 +57,7 @@ toggleButton?.addEventListener('click', () => {
   localStorage.setItem('theme', mode);
 });
 
-// Load saved theme
-window.addEventListener('load', () => {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'dark') document.body.classList.add('dark-mode');
-});
-
-// Descriptions for images
+// ========== Image Descriptions ==========
 const descriptions = {
   "Page1.jpg": "Procreate digital sketch using symmetry tool",
   "Page2.jpg": "Watercolor experiment with natural pigments",
@@ -72,3 +77,4 @@ const descriptions = {
   "Page16.jpg": "Animated frame study in Krita",
   "Page17.jpg": "Pencil sketch from reference photo"
 };
+
