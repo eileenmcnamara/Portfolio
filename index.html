@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <title>Eileen McNamara – Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Stylish logo override (can move to style.css) */
+    .logo {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 26px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">🎨 Eileen's Artwork</div>
+    <div class="logo">Eileen’s Artwork</div>
     <div class="search-bar">
       <input type="text" placeholder="Piece Search" aria-label="Search artworks">
       <img src="https://img.icons8.com/material-outlined/24/000000/search--v1.png" alt="Search Icon">
@@ -22,7 +33,8 @@
       <p class="location">Zurich, Switzerland</p>
       <p class="bio">Student artist exploring digital media and traditional art.</p>
 
-      <button class="message">Message</button>
+      <!-- Email link styled as button -->
+      <a href="mailto:eileen.aylin.mcnamara@gmail.com" class="message">📧 Message Me</a>
 
       <nav>
         <a href="index.html" class="active">Portfolio</a>
