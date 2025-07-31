@@ -62,17 +62,11 @@ const descriptions = {
   "Page1.jpg": "Pop-art inspired digital sketch created in Adobe Illustrator.First experiment with typography and layering techniques, exploring text as visual expression.",
   "Page3.jpg": "Shape-based digital fashion sketch using Adobe Illustrator. Ready mannequin styled with geometric forms and bold contrast for a futuristic look.",
   "Page5.jpg": "Geometric logo design created in Adobe Illustrator. First attempt at digital lettering — exploring symmetry and graphic rhythm.",
-  "Page6.jpg": "Acrylic still life on canvas",
   "Page7.jpg": "Animated frame study in Krita",
-  "Page8.jpg": "Pencil sketch from reference photo",
   "Page9.jpg": "Acrylic still life on canvas",
-  "Page10.jpg": "Animated frame study in Krita",
   "Page11.jpg": "Pencil sketch from reference photo",
-  "Page12.jpg": "Acrylic still life on canvas",
   "Page13.jpg": "Animated frame study in Krita",
-  "Page14.jpg": "Pencil sketch from reference photo",
   "Page15.jpg": "Acrylic still life on canvas",
-  "Page16.jpg": "Animated frame study in Krita",
-  "Page17.jpg": "Abstract gradient study created in Adobe Illustrator. First try with shapes, shadows, and 3D raster mesh effects to explore depth and light using bold color transitions."
+   "Page17.jpg": "Abstract gradient study created in Adobe Illustrator. First try with shapes, shadows, and 3D raster mesh effects to explore depth and light using bold color transitions."
 };
 
