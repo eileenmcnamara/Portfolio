@@ -17,3 +17,22 @@ filterButtons.forEach(button => {
     });
   });
 });
+
+// Smooth transition on load
+window.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('loaded');
+});
+
+// Dark mode toggle
+const toggleButton = document.querySelector('.dark-toggle');
+toggleButton?.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+  localStorage.setItem('theme', mode);
+});
+
+// Load saved theme
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark') document.body.classList.add('dark-mode');
+});
