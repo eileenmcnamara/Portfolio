@@ -1,3 +1,5 @@
+console.log("Script loaded");
+
 const filterButtons = document.querySelectorAll(".filters button");
 const images = document.querySelectorAll(".art-grid img");
 
