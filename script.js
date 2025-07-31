@@ -75,6 +75,6 @@ const descriptions = {
   "Page14.jpg": "Pencil sketch from reference photo",
   "Page15.jpg": "Acrylic still life on canvas",
   "Page16.jpg": "Animated frame study in Krita",
-  "Page17.jpg": "Pencil sketch from reference photo"
+  "Page17.jpg": "Abstract gradient study created in Adobe Illustrator. First try with shapes, shadows, and 3D raster mesh effects to explore depth and light using bold color transitions."
 };
 
