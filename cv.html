@@ -2,15 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CV – Eileen McNamara</title>
+  <title>Eileen McNamara – CV</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .quote-box {
+      border-left: 6px solid #007BFF;
+      padding: 15px 20px;
+      margin-bottom: 30px;
+      font-style: italic;
+      background: #f4f8ff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .quote-box cite {
+      display: block;
+      margin-top: 8px;
+      text-align: right;
+      font-style: normal;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .cv-section h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .cv-section p {
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .cv-buttons a {
+      display: inline-block;
+      margin-right: 15px;
+      margin-top: 15px;
+      background: #007BFF;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .cv-buttons a:hover {
+      background: #005bb5;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">🎨 Eileen's Artwork</div>
+    <div class="logo">Eileen’s Artwork</div>
     <div class="search-bar">
-      <input type="text" placeholder="Piece Search" aria-label="Search">
-      <img src="https://img.icons8.com/material-outlined/24/000000/search--v1.png" alt="Search Icon">
+      <input type="text" placeholder="Search..." aria-label="Search">
       <button class="dark-toggle" aria-label="Toggle Dark Mode">☾ Toggle Mode</button>
     </div>
   </header>
@@ -22,7 +69,7 @@
       <p class="location">Zurich, Switzerland</p>
       <p class="bio">Student artist exploring digital media and traditional art.</p>
 
-      <button class="message">Message</button>
+      <a href="mailto:eileen.aylin.mcnamara@gmail.com" class="message">Message Me</a>
 
       <nav>
         <a href="index.html">Portfolio</a>
@@ -31,20 +78,31 @@
       </nav>
     </aside>
 
-    <section class="gallery">
-      <h1>Curriculum Vitae</h1>
-      <p>Hello! My name is <strong>Eileen McNamara</strong>. I'm a student artist based in Zurich with a passion for both digital and traditional media. My creative journey explores color, character, and storytelling through various tools such as Photoshop, Illustrator, and hand-drawn methods. I’m currently focused on expanding my skills in animation and concept design.</p>
+    <section class="gallery cv-section">
+      <div class="quote-box">
+        “Design is not just what it looks like and feels like. Design is how it works.”
+        <cite>— Steve Jobs</cite>
+      </div>
 
-      <p>My educational background includes studies in visual communication and digital arts, and I have completed several school projects and personal studies showcased in the Portfolio tab.</p>
+      <h1>Curriculum Vitae</h1>
+      <p>Hello! My name is <strong>Eileen McNamara</strong>. I'm a student artist based in Zurich with a passion for both digital and traditional media. My creative journey explores color, character, and storytelling through various tools such as Photoshop, Illustrator, and hand-drawn methods.</p>
+
+      <p>I’m currently focused on expanding my skills in animation and concept design. My educational background includes studies in visual communication and digital arts, and I have completed several school projects and personal studies showcased in the Portfolio tab.</p>
 
       <p>You can view or download my CV below:</p>
 
-      <a href="cv/CV_Eileen McNamara.pdf" target="_blank" class="cv-download">📄 Open My CV (English PDF)</a><br><br>
-      <a href="cv/Lebenslauf_Eileen McNamara.pdf" target="_blank" class="cv-download">📄 Mein Lebenslauf (Deutsch PDF)</a>
+      <div class="cv-buttons">
+        <a href="cv/Eileen_McNamara_CV_EN.pdf" target="_blank">📄 Open CV (English)</a>
+        <a href="cv/Eileen_McNamara_CV_DE.pdf" target="_blank">📄 Mein Lebenslauf (Deutsch)</a>
+      </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    document.querySelector('.dark-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
 </body>
 </html>
 
