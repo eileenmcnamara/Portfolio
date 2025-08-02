@@ -177,11 +177,13 @@ body.dark-mode .art-item img {
 
 /* Floating overlay description (on hover only) */
 .img-description.overlay {
+.img-description.overlay {
   position: absolute;
   top: -40px;
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-  padding: 6px 12px;
+  background: rgba(240, 240, 240, 0.95); /* light gray background */
+  color: #111; /* dark text */
+  font-weight: bold;
+  padding: 10px 14px;
   border-radius: 6px;
   font-size: 18px;
   white-space: normal;
@@ -191,6 +193,7 @@ body.dark-mode .art-item img {
   max-width: 90%;
   text-align: center;
   z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* subtle shadow */
 }
 
 .art-item:hover .img-description.overlay {
@@ -290,7 +293,7 @@ body.dark-mode a {
 }
 
 body.dark-mode .img-description.overlay {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(30, 30, 30, 0.95); /* dark gray */
   color: #f0f0f0;
 }
 
