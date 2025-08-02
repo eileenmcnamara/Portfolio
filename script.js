@@ -1,74 +1,5 @@
 console.log("Script loaded");
 
-// ========== Filter Logic ==========
-const filterButtons = document.querySelectorAll(".filters button");
-
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    const filter = button.getAttribute("data-filter");
-
-    document.querySelectorAll(".art-item").forEach(item => {
-      if (filter === "all" || item.classList.contains(filter)) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
-    });
-  });
-});
-
-// ========== Theme + Load ==========
-window.addEventListener("DOMContentLoaded", () => {
-  document.body.classList.add("loaded");
-
-  const saved = localStorage.getItem('theme');
-  if (saved === 'dark') document.body.classList.add('dark-mode');
-
-  // Add image descriptions and wrap image in .art-item
-  document.querySelectorAll(".art-grid img").forEach(img => {
-    const fileName = img.src.split('/').pop();
-    const description = descriptions[fileName];
-
-    const wrapper = document.createElement("div");
-    wrapper.classList.add("art-item");
-
-    // Add the type class (digital or traditional) from image to wrapper
-    if (img.classList.contains("digital")) {
-      wrapper.classList.add("digital");
-    }
-    if (img.classList.contains("traditional")) {
-      wrapper.classList.add("traditional");
-    }
-
-    // Insert wrapper before image, then move image into wrapper
-    img.parentElement.insertBefore(wrapper, img);
-    wrapper.appendChild(img);
-
-    // Add description below image
-    if (description) {
-      const caption = document.createElement("div");
-      caption.className = "img-description";
-      caption.textContent = description;
-      wrapper.appendChild(caption);
-    }
-  });
-
-  // Optional: Show digital by default
-  const defaultBtn = document.querySelector('.filter-tab[data-filter="digital"]');
-  if (defaultBtn) defaultBtn.click();
-});
-
-// ========== Dark Mode Toggle ==========
-const toggleButton = document.querySelector('.dark-toggle');
-toggleButton?.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-  localStorage.setItem('theme', mode);
-});
-
 // ========== Image Descriptions ==========
 const descriptions = {
   "Page1.jpg": "Pop-art inspired digital sketch created in Adobe Illustrator. First experiment with typography and layering techniques, exploring text as visual expression.",
@@ -85,6 +16,74 @@ const descriptions = {
   "Page2.jpg": "Charcoal drawing of a cat in profile, capturing light, texture, and expression through bold contrasts and soft shading. Handmade on paper using subtractive techniques."
 };
 
+// ========== Filter Logic ==========
+const filterButtons = document.querySelectorAll(".filters button");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    const filter = button.getAttribute("data-filter");
+    document.querySelectorAll(".art-item").forEach(item => {
+      item.style.display = item.classList.contains(filter) ? "block" : "none";
+    });
+  });
+});
+
+// ========== Theme + Load ==========
+window.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
+
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark') document.body.classList.add('dark-mode');
+
+  // Add wrappers, overlay descriptions, and titles
+  document.querySelectorAll(".art-grid img").forEach(img => {
+    const fileName = img.src.split('/').pop();
+    const description = descriptions[fileName];
+
+    // Create wrapper
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("art-item");
+
+    // Copy over type class
+    if (img.classList.contains("digital")) wrapper.classList.add("digital");
+    if (img.classList.contains("traditional")) wrapper.classList.add("traditional");
+
+    // Insert wrapper and move image inside
+    img.parentElement.insertBefore(wrapper, img);
+    wrapper.appendChild(img);
+
+    // Floating overlay description (on hover)
+    if (description) {
+      const overlay = document.createElement("div");
+      overlay.className = "img-description overlay";
+      overlay.textContent = description;
+      wrapper.appendChild(overlay);
+    }
+
+    // Always-visible title under image
+    const title = document.createElement("div");
+    title.className = "art-title";
+    title.textContent = img.alt || fileName;
+    wrapper.appendChild(title);
+  });
+
+  // Default filter
+  const defaultBtn = document.querySelector('.filter-tab[data-filter="digital"]');
+  if (defaultBtn) defaultBtn.click();
+});
+
+// ========== Dark Mode Toggle ==========
+const toggleButton = document.querySelector('.dark-toggle');
+toggleButton?.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+  localStorage.setItem('theme', mode);
+});
+
+// ========== Search ==========
 const searchInput = document.getElementById('searchInput');
 
 if (searchInput) {
@@ -93,12 +92,9 @@ if (searchInput) {
     const artItems = document.querySelectorAll('.art-item');
 
     artItems.forEach(item => {
-      const description = item.querySelector('.img-description')?.textContent.toLowerCase() || '';
-      if (description.includes(searchText)) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
+      const desc = item.querySelector('.img-description')?.textContent.toLowerCase() || '';
+      const title = item.querySelector('.art-title')?.textContent.toLowerCase() || '';
+      item.style.display = (desc.includes(searchText) || title.includes(searchText)) ? 'block' : 'none';
     });
   });
 }
