@@ -293,7 +293,7 @@ body.dark-mode a {
 }
 
 body.dark-mode .img-description.overlay {
-  background: rgba(30, 30, 30, 0.95); /* dark gray */
+  background: rgba(20, 20, 20, 0.95);  /* very dark gray for dark mode */
   color: #f0f0f0;
 }
 
