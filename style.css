@@ -283,6 +283,16 @@ body.dark-mode a {
 }
 
 body.dark-mode .img-description.overlay {
-  background: rgba(255, 255, 255, 0.1);
-  color: #f0f0f0;
+  background: rgba(0, 0, 0, 0.95); /* near black */
+  color: #f0f0f0; /* light text for contrast */
 }
+
+body.dark-mode .quote-box {
+  background-color: #2a2a2a;
+  color: #dddddd;
+}
+
+body.dark-mode .quote-box cite {
+  color: #bbbbbb;
+}
+
