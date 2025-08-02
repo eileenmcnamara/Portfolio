@@ -287,4 +287,13 @@ body.dark-mode .img-description.overlay {
   color: #f0f0f0;
 }
 
+/* Fix for quote visibility in dark mode */
+body.dark-mode .quote-box {
+  background-color: #2a2a2a;
+  color: #dddddd;
+}
+
+body.dark-mode .quote-box cite {
+  color: #bbbbbb;
+}
 
