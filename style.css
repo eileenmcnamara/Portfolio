@@ -283,8 +283,9 @@ body.dark-mode a {
 }
 
 body.dark-mode .img-description.overlay {
-  background: rgba(0, 0, 0, 0.95); /* near black */
-  color: #f0f0f0; /* light text for contrast */
+  background: #000;       /* full black */
+  color: #f0f0f0;         /* light gray text */
+  font-weight: bold;
 }
 
 body.dark-mode .quote-box {
