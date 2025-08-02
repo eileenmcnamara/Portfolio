@@ -144,28 +144,62 @@ main {
   gap: 15px;
 }
 
-.art-grid img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+/* Image styling with border and shadow */
+.art-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .art-item img {
-  border: 2px solid rgba(0, 0, 0, 0.8);   /* thin blackish border */
-  border-radius: 6px;                    /* optional: smooth corners */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* light shadow for depth */
+  width: 100%;
+  height: auto;
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .art-item img:hover {
   transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* stronger shadow on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.art-grid img:hover {
-  transform: scale(1.03);
+/* Floating overlay description (on hover only) */
+.img-description.overlay {
+  position: absolute;
+  top: -40px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: normal;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  max-width: 90%;
+  text-align: center;
+  z-index: 10;
+}
+
+.art-item:hover .img-description.overlay {
+  opacity: 1;
+}
+
+/* Always-visible title under each image */
+.art-title {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 8px;
+  color: #222;
+}
+
+body.dark-mode .art-title {
+  color: #eee;
 }
 
 /* LIGHTBOX */
@@ -245,15 +279,11 @@ body.dark-mode .filters button.active {
 
 body.dark-mode a {
   color: #7db9ff;
+}
 
-  /* ✅ ADD THIS BELOW */
-body.dark-mode .img-description {
+body.dark-mode .img-description.overlay {
+  background: rgba(255, 255, 255, 0.1);
   color: #f0f0f0;
 }
 
-.img-description {
-  font-size: 14px;
-  color: black;
-  margin-top: 6px;
-  text-align: center;
-}
+
