@@ -6,32 +6,72 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     .logo {
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 26px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #ff6a00, #ee0979);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-    .img-description {
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    font-weight: 500;
-    color: black;
-    margin-top: 12px;
-    padding: 4px 8px;
-    text-align: center;
-    letter-spacing: 0.3px;
-    line-height: 1.4;
-  }
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 26px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
     .art-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin-bottom: 30px;
+    }
+
+    .art-item img {
+      width: 100%;
+      height: auto;
+      border: 2px solid rgba(0, 0, 0, 0.8);
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .art-item img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .img-description.overlay {
+      position: absolute;
+      top: -40px;
+      background: rgba(0, 0, 0, 0.75);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      white-space: normal;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      max-width: 90%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .art-item:hover .img-description.overlay {
+      opacity: 1;
+    }
+
+    .art-title {
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 8px;
+      color: #222;
     }
 
     body.dark-mode .img-description {
       color: #f0f0f0;
+    }
+
+    body.dark-mode .art-title {
+      color: #eee;
     }
   </style>
 </head>
@@ -63,8 +103,8 @@
 
     <section class="gallery">
       <div class="filters">
-        <button class="filter-tab" data-filter="digital" style="font-size: 20px; padding: 12px 24px;">Digital Art</button>
-        <button class="filter-tab" data-filter="traditional" style="font-size: 20px; padding: 12px 24px;">Traditional Art</button>
+        <button class="filter-tab" data-filter="digital">Digital Art</button>
+        <button class="filter-tab" data-filter="traditional">Traditional Art</button>
       </div>
 
       <div class="art-grid">
@@ -93,62 +133,58 @@
     console.log("Script loaded");
 
     const descriptions = {
-      "Page1.jpg": "Pop-art inspired digital sketch created in Adobe Illustrator. First experiment with typography and layering techniques, exploring text as visual expression.",
-      "Page3.jpg": "Shape-based digital fashion sketch using Adobe Illustrator. Ready mannequin styled with geometric forms and bold contrast for a futuristic look.",
-      "Page5.jpg": "Geometric logo design for Besiktas Football Team created in Adobe Illustrator. First attempt at digital lettering — exploring symmetry and graphic rhythm.",
-      "Page9.jpg": "Adobe Illustrator study using colorful star shapes. Focus on symmetry, layering, and bold outlines.",
-      "Page11.jpg": "Collage made in Adobe Photoshop, inspired by Drake and PARTYNEXTDOOR promo visuals. Combines concert tickets, merch, and digital media to recreate an OVO-style PR look.",
-      "Page13.jpg": "Mixed media collage using Adobe Photoshop and Illustrator. Combines bold star shapes with music visuals from Drake and PARTYNEXTDOOR to create a dynamic, fan-inspired layout.",
-      "Page15.jpg": "3D perspective study in Adobe Illustrator. Created using geometric shapes, gradient lines, and star motifs to explore depth, motion, and bold contrast.",
-      "Page17.jpg": "Abstract gradient study created in Adobe Illustrator. First try with shapes, shadows, and 3D raster mesh effects to explore depth and light using bold color transitions.",
-      "Page19.jpg": "Colorful star composition made in Adobe Illustrator. Practicing shape building, layering, and vibrant color contrast.",
-      "Page21.jpg": "Adobe Illustrator illustration of cereal and spoon. Practicing shape repetition, outlines, and playful food design.",
-      "Quietloud.gif": "Animated artwork using looping effects, exploring rhythm and text timing with GIF format.",
-      "Page2.jpg": "Charcoal drawing of a cat in profile, capturing light, texture, and expression through bold contrasts and soft shading. Handmade on paper using subtractive techniques."
+      "Page1.jpg": "Pop-art inspired digital sketch created in Adobe Illustrator...",
+      "Page3.jpg": "Shape-based digital fashion sketch using Adobe Illustrator...",
+      "Page5.jpg": "Geometric logo design for Besiktas Football Team...",
+      "Page9.jpg": "Adobe Illustrator study using colorful star shapes...",
+      "Page11.jpg": "Collage made in Adobe Photoshop, inspired by Drake...",
+      "Page13.jpg": "Mixed media collage using Adobe Photoshop and Illustrator...",
+      "Page15.jpg": "3D perspective study in Adobe Illustrator...",
+      "Page17.jpg": "Abstract gradient study created in Adobe Illustrator...",
+      "Page19.jpg": "Colorful star composition made in Adobe Illustrator...",
+      "Page21.jpg": "Adobe Illustrator illustration of cereal and spoon...",
+      "Quietloud.gif": "Animated artwork using looping effects...",
+      "Page2.jpg": "Charcoal drawing of a cat in profile..."
     };
 
     window.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("loaded");
-
       const saved = localStorage.getItem('theme');
       if (saved === 'dark') document.body.classList.add('dark-mode');
 
-      const grid = document.querySelector(".art-grid");
-      const imgs = Array.from(grid.querySelectorAll("img"));
-
-      imgs.forEach(img => {
-        const wrapper = document.createElement("div");
-        wrapper.classList.add("art-item");
-
-        if (img.classList.contains("digital")) wrapper.classList.add("digital");
-        if (img.classList.contains("traditional")) wrapper.classList.add("traditional");
-
+      document.querySelectorAll(".art-grid img").forEach(img => {
         const fileName = img.src.split('/').pop();
         const desc = descriptions[fileName];
+
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("art-item");
+        if (img.classList.contains("digital")) wrapper.classList.add("digital");
+        if (img.classList.contains("traditional")) wrapper.classList.add("traditional");
 
         img.parentElement.insertBefore(wrapper, img);
         wrapper.appendChild(img);
 
         if (desc) {
-          const caption = document.createElement("div");
-          caption.className = "img-description";
-          caption.textContent = desc;
-          wrapper.appendChild(caption);
+          const overlay = document.createElement("div");
+          overlay.className = "img-description overlay";
+          overlay.textContent = desc;
+          wrapper.appendChild(overlay);
         }
+
+        const title = document.createElement("div");
+        title.className = "art-title";
+        title.textContent = img.alt;
+        wrapper.appendChild(title);
       });
 
-      // Default filter
       const defaultBtn = document.querySelector('.filter-tab[data-filter="digital"]');
       if (defaultBtn) defaultBtn.click();
     });
 
-    // Filters
-    const filterButtons = document.querySelectorAll(".filter-tab");
-    filterButtons.forEach(button => {
+    document.querySelectorAll(".filter-tab").forEach(button => {
       button.addEventListener("click", () => {
-        filterButtons.forEach(btn => btn.classList.remove("active"));
+        document.querySelectorAll(".filter-tab").forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
-
         const filter = button.getAttribute("data-filter");
         document.querySelectorAll(".art-item").forEach(item => {
           item.style.display = item.classList.contains(filter) ? "block" : "none";
@@ -156,7 +192,6 @@
       });
     });
 
-    // Lightbox
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.querySelector(".lightbox .close");
@@ -177,20 +212,19 @@
       if (e.target === lightbox) lightbox.style.display = "none";
     });
 
-    // Dark mode toggle
     document.querySelector(".dark-toggle").addEventListener("click", () => {
       document.body.classList.toggle("dark-mode");
       const mode = document.body.classList.contains("dark-mode") ? "dark" : "light";
       localStorage.setItem("theme", mode);
     });
 
-    // Search
     const searchInput = document.getElementById("searchInput");
     searchInput.addEventListener("input", () => {
       const searchText = searchInput.value.toLowerCase();
       document.querySelectorAll(".art-item").forEach(item => {
-        const text = item.querySelector(".img-description")?.textContent.toLowerCase() || "";
-        item.style.display = text.includes(searchText) ? "block" : "none";
+        const desc = item.querySelector(".img-description")?.textContent.toLowerCase() || "";
+        const title = item.querySelector(".art-title")?.textContent.toLowerCase() || "";
+        item.style.display = (desc.includes(searchText) || title.includes(searchText)) ? "block" : "none";
       });
     });
   </script>
