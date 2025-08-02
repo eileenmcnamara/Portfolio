@@ -170,11 +170,6 @@ main {
   box-shadow: 0 10px 16px rgba(0, 0, 0, 0.35);
 }
 
-body.dark-mode .art-item img {
-  background: #1e1e1e;
-  border: 2px solid #555;
-}
-
 /* Floating overlay description (on hover only) */
 .img-description.overlay {
 .img-description.overlay {
